@@ -7,7 +7,7 @@
 //
 
 #import "Business.h"
-#import "NSArray+Fold.h"
+#import "NSArray+ArrayOps.h"
 
 @implementation Business
 
