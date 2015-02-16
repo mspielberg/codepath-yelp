@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="KGk-i7-Jjw" customClass="SwitchCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MzB-Ov-kiY">
+                        <rect key="frame" x="8" y="11" width="42" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="puG-8X-2Tw">
+                        <rect key="frame" x="263" y="6" width="51" height="31"/>
+                        <connections>
+                            <action selector="onValueChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="A8p-Gz-HGd"/>
+                        </connections>
+                    </switch>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="puG-8X-2Tw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="MzB-Ov-kiY" secondAttribute="trailing" constant="8" id="1TO-z8-xCn"/>
+                    <constraint firstAttribute="centerY" secondItem="MzB-Ov-kiY" secondAttribute="centerY" id="Ab0-W3-BET"/>
+                    <constraint firstItem="MzB-Ov-kiY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Gps-OO-8PN"/>
+                    <constraint firstAttribute="trailing" secondItem="puG-8X-2Tw" secondAttribute="trailing" constant="8" id="Uci-1I-OUu"/>
+                    <constraint firstAttribute="centerY" secondItem="puG-8X-2Tw" secondAttribute="centerY" id="YnN-JO-iYY"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="onOffSwitch" destination="puG-8X-2Tw" id="sd9-pM-uUc"/>
+                <outlet property="switchLabel" destination="MzB-Ov-kiY" id="dgG-HS-hnl"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="366"/>
+        </tableViewCell>
+    </objects>
+</document>
