@@ -7,7 +7,7 @@
 //
 
 #import "BusinessCell.h"
-#import "UIImageView+AFNetworking.h"
+#import "UIImageView+AnimationUtils.h"
 #import "Units.h"
 
 @interface BusinessCell ()
@@ -39,10 +39,12 @@
 
 - (void)setBusiness:(Business *)business {
     _business = business;
-    [self.businessImageView setImageWithURL:self.business.imageUrl];
+    [self.businessImageView setImage:nil];
+    [self.businessImageView setImageWithURL:self.business.imageUrl placeholderImage:nil duration:0.3];
     self.nameLabel.text = [NSString stringWithFormat:@"%ld. %@", self.index + 1, self.business.name];
     self.distanceLabel.text = [NSString stringWithFormat:@"%0.2f mi", [self.business.distanceInMeters floatValue] * kMilesPerMeter];
-    [self.starsImageView setImageWithURL:self.business.ratingImageUrl];
+    [self.starsImageView setImage:nil];
+    [self.starsImageView setImageWithURL:self.business.ratingImageUrl placeholderImage:nil duration:0.3];
     self.reviewCountLabel.text = [NSString stringWithFormat:@"%ld reviews", self.business.reviewCount];
     self.locationLabel.text = self.business.streetAddress;
     if (self.business.neighborhoods.count > 0) {

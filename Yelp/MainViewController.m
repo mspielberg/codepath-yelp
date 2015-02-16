@@ -178,8 +178,10 @@ NSString * const kYelpTokenSecret = @"J-9igA_UsK-64QE5WS3iBBHGd0M";
 //    NSLog(@"Entering onShowFilters");
     FiltersViewController *fvc = [[FiltersViewController alloc] init];
     fvc.delegate = self;
-    NSLog(@"Settings filterSettings: %@", self.filterSettings); 
-    fvc.filterSettings = self.filterSettings;
+    NSLog(@"Settings filterSettings: %@", self.filterSettings);
+    if (self.filterSettings) {
+        fvc.filterSettings = self.filterSettings;        
+    }
     UINavigationController *fnvc = [[UINavigationController alloc]initWithRootViewController:fvc];
     
     [self presentViewController:fnvc animated:YES completion:nil];

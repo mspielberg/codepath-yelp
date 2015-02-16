@@ -30,6 +30,7 @@
 }
 
 - (void)setOn:(BOOL)on {
+    NSLog(@"Entering setOn: %d", on);
     self.onOffSwitch.on = on;
 }
 

@@ -15,6 +15,7 @@
 #import "Units.h"
 
 @interface FiltersViewController () <UITableViewDataSource, SortOrderCellDelegate, RadiusCellDelegate, SwitchCellDelegate>
+@property (strong, nonatomic) UINib *switchCellNib;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) SortOrderCell *sortOrderCell;
 @property (strong, nonatomic) RadiusCell *radiusCell;
@@ -26,33 +27,39 @@
 
 @implementation FiltersViewController
 
+- (FiltersViewController *)init {
+    self = [super init];
+    if (self) {
+        self.title = @"Filters";
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(onCancel)];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onDone)];
+        
+        self.sortOrderCell = [[NSBundle mainBundle] loadNibNamed:@"SortOrderCell" owner:self options:nil].firstObject;
+        self.sortOrderCell.delegate = self;
+        
+        self.radiusCell = [[NSBundle mainBundle] loadNibNamed:@"RadiusCell" owner:self options:nil].firstObject;
+        self.radiusCell.delegate = self;
+        
+        self.switchCellNib = [UINib nibWithNibName:@"SwitchCell" bundle:nil];
+        
+        self.dealsCell = [self switchCellWithTitle:@"Offering a Deal"];
+        
+        self.generalFilterCells = @[self.sortOrderCell, self.radiusCell, self.dealsCell];
+        
+        if (!self.filterSettings)
+            self.filterSettings = [[YelpFilterSettings alloc] init];
+        
+        self.radiusCell.value = self.filterSettings.searchRadiusInMiles;
+        
+        self.showAllCategoriesCell = [self switchCellWithTitle:@"Show All Categories"];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    self.title = @"Filters";
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(onCancel)];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onDone)];
-    
-    self.sortOrderCell = [[NSBundle mainBundle] loadNibNamed:@"SortOrderCell" owner:self options:nil].firstObject;
-    self.sortOrderCell.delegate = self;
-    
-    self.radiusCell = [[NSBundle mainBundle] loadNibNamed:@"RadiusCell" owner:self options:nil].firstObject;
-    self.radiusCell.delegate = self;
-    
-    UINib *switchCellNib = [UINib nibWithNibName:@"SwitchCell" bundle:nil];
-    [self.tableView registerNib:switchCellNib forCellReuseIdentifier:@"SwitchCell"];
-    
-    self.dealsCell = [self switchCellFromNib:switchCellNib withTitle:@"Offering a Deal"];
-    
-    self.generalFilterCells = @[self.sortOrderCell, self.radiusCell, self.dealsCell];
-    
-    if (!self.filterSettings)
-        self.filterSettings = [[YelpFilterSettings alloc] init];
-    
-    self.radiusCell.value = self.filterSettings.searchRadiusInMiles;
-    
-    self.showAllCategoriesCell = [self switchCellFromNib:switchCellNib withTitle:@"Show All Categories"];
+    [self.tableView registerNib:self.switchCellNib forCellReuseIdentifier:@"SwitchCell"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -60,8 +67,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (SwitchCell *)switchCellFromNib:(UINib *)nib withTitle:(NSString *)title {
-    SwitchCell *cell = [nib instantiateWithOwner:self options:nil].firstObject;
+- (SwitchCell *)switchCellWithTitle:(NSString *)title {
+    SwitchCell *cell = [self.switchCellNib instantiateWithOwner:self options:nil].firstObject;
     cell.delegate = self;
     cell.title = title;
     return cell;
@@ -72,7 +79,10 @@
 
     _filterSettings = [filterSettings copy];
     NSLog(@"Setting filterSettings = %@", _filterSettings);
+    self.sortOrderCell.value = filterSettings.sortType;
     self.radiusCell.value = filterSettings.searchRadiusInMiles;
+    self.dealsCell.on = filterSettings.dealsFilter;
+    
     [self reloadCategories];
 }
 

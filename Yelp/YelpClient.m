@@ -29,7 +29,11 @@
     NSDictionary *filterParameters = [self parametersForFilterSettings:filters];
     
     NSMutableDictionary *allParameters = [NSMutableDictionary dictionaryWithDictionary:baseParameters];
-    [allParameters addEntriesFromDictionary:filterParameters];
+
+    if (filters) {
+        [allParameters addEntriesFromDictionary:filterParameters];
+    }
+    
     NSLog(@"sending search parameters: %@", allParameters);
     
     return [self GET:@"search" parameters:allParameters success:success failure:failure];

@@ -26,6 +26,8 @@
 		9106CE4C1A8B04AD00338420 /* BusinessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9106CE4A1A8B04AD00338420 /* BusinessCell.m */; };
 		9106CE4D1A8B04AD00338420 /* BusinessCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9106CE4B1A8B04AD00338420 /* BusinessCell.xib */; };
 		9106CE511A8B04C400338420 /* Business.m in Sources */ = {isa = PBXBuildFile; fileRef = 9106CE501A8B04C400338420 /* Business.m */; };
+		913E76D81A91B1390071674A /* UIImageView+AnimationUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 913E76D71A91B1390071674A /* UIImageView+AnimationUtils.m */; };
+		913E76DA1A91B3A50071674A /* walkthrough.gif in Resources */ = {isa = PBXBuildFile; fileRef = 913E76D91A91B3A50071674A /* walkthrough.gif */; };
 		918EA03D1A8C257C00CA29DD /* NSArray+ArrayOps.m in Sources */ = {isa = PBXBuildFile; fileRef = 918EA03C1A8C257C00CA29DD /* NSArray+ArrayOps.m */; };
 		918EA0411A8C435F00CA29DD /* FiltersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 918EA03F1A8C435F00CA29DD /* FiltersViewController.m */; };
 		918EA0421A8C435F00CA29DD /* FiltersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 918EA0401A8C435F00CA29DD /* FiltersViewController.xib */; };
@@ -76,6 +78,9 @@
 		9106CE4F1A8B04C400338420 /* Business.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Business.h; sourceTree = "<group>"; };
 		9106CE501A8B04C400338420 /* Business.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Business.m; sourceTree = "<group>"; };
 		913E76D51A9174960071674A /* YelpFilterSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YelpFilterSettings.h; sourceTree = "<group>"; };
+		913E76D61A91B1390071674A /* UIImageView+AnimationUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AnimationUtils.h"; sourceTree = "<group>"; };
+		913E76D71A91B1390071674A /* UIImageView+AnimationUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AnimationUtils.m"; sourceTree = "<group>"; };
+		913E76D91A91B3A50071674A /* walkthrough.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = walkthrough.gif; sourceTree = "<group>"; };
 		918EA03B1A8C257C00CA29DD /* NSArray+ArrayOps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+ArrayOps.h"; sourceTree = "<group>"; };
 		918EA03C1A8C257C00CA29DD /* NSArray+ArrayOps.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ArrayOps.m"; sourceTree = "<group>"; };
 		918EA03E1A8C435F00CA29DD /* FiltersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FiltersViewController.h; sourceTree = "<group>"; };
@@ -149,6 +154,7 @@
 		42FD6C3E18DC286A000BF2B9 = {
 			isa = PBXGroup;
 			children = (
+				913E76D91A91B3A50071674A /* walkthrough.gif */,
 				42FD6C5018DC286B000BF2B9 /* Yelp */,
 				42FD6C6918DC286B000BF2B9 /* YelpTests */,
 				42FD6C4918DC286B000BF2B9 /* Frameworks */,
@@ -264,6 +270,8 @@
 		918EA0341A8C253900CA29DD /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				913E76D61A91B1390071674A /* UIImageView+AnimationUtils.h */,
+				913E76D71A91B1390071674A /* UIImageView+AnimationUtils.m */,
 				918EA03B1A8C257C00CA29DD /* NSArray+ArrayOps.h */,
 				918EA03C1A8C257C00CA29DD /* NSArray+ArrayOps.m */,
 			);
@@ -358,6 +366,7 @@
 				918EA04F1A8C44F800CA29DD /* SortOrderCell.xib in Resources */,
 				918EA05C1A8C46F200CA29DD /* SwitchCell.xib in Resources */,
 				9106CE4D1A8B04AD00338420 /* BusinessCell.xib in Resources */,
+				913E76DA1A91B3A50071674A /* walkthrough.gif in Resources */,
 				42FD6C5518DC286B000BF2B9 /* InfoPlist.strings in Resources */,
 				918EA0421A8C435F00CA29DD /* FiltersViewController.xib in Resources */,
 				420474FC18DC2B2100E88E07 /* MainViewController.xib in Resources */,
@@ -426,6 +435,7 @@
 				420474F618DC299500E88E07 /* YelpClient.m in Sources */,
 				9106CE511A8B04C400338420 /* Business.m in Sources */,
 				420474FB18DC2B2100E88E07 /* MainViewController.m in Sources */,
+				913E76D81A91B1390071674A /* UIImageView+AnimationUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
